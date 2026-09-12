@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aakash Girish Atre — Network &amp; Security Engineer</title>
+<meta name="description" content="Portfolio of Aakash Girish Atre, Senior Network Engineer specializing in Cisco Meraki and Sophos XGS firewall infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121A26;
+    --ink-2:#1B2635;
+    --paper:#E8E4D6;
+    --paper-dim:#C9C4B2;
+    --amber:#E3A23C;
+    --teal:#4F978A;
+    --coral:#C9634F;
+    --line:rgba(232,228,214,0.14);
+    --line-strong:rgba(232,228,214,0.28);
+    --max:960px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* ---------- header / nav ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(18,26,38,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--max); margin:0 auto;}
+  .brand{font-weight:600; font-size:1rem; letter-spacing:0.01em;}
+  .brand span{color:var(--amber);}
+  nav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  nav a{font-size:0.85rem; text-decoration:none; opacity:0.75; transition:opacity .15s;}
+  nav a:hover{opacity:1;}
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at 70% 30%, black 10%, transparent 68%);
+    opacity:0.6;
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--teal);
+    margin:0 0 18px;
+  }
+  .eyebrow::before{content:"● "; color:var(--amber);}
+  h1{
+    font-size:clamp(2.3rem, 5vw, 3.6rem);
+    line-height:1.08;
+    margin:0 0 22px;
+    font-weight:700;
+    max-width:11ch;
+  }
+  .hero p.lede{
+    max-width:56ch;
+    font-size:1.08rem;
+    color:var(--paper-dim);
+    margin:0 0 34px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 20px;
+    border-radius:3px;
+    font-size:0.9rem;
+    text-decoration:none;
+    border:1px solid var(--line-strong);
+    transition:border-color .15s, background .15s;
+  }
+  .btn.primary{background:var(--amber); color:var(--ink); border-color:var(--amber); font-weight:600;}
+  .btn.primary:hover{background:#eab35b;}
+  .btn.ghost:hover{border-color:var(--paper);}
+
+  .hero-meta{
+    display:flex; gap:34px; flex-wrap:wrap;
+    margin-top:56px;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--paper-dim);
+  }
+  .hero-meta strong{display:block; color:var(--paper); font-size:1.4rem; font-family:'Space Grotesk',sans-serif; font-weight:600;}
+
+  /* ---------- section shell ---------- */
+  section{padding:76px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:38px; gap:20px; flex-wrap:wrap;}
+  .section-head h2{font-size:1.5rem; margin:0; font-weight:600;}
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--teal);}
+
+  /* ---------- summary ---------- */
+  .summary-text{max-width:70ch; font-size:1.05rem; color:var(--paper-dim);}
+  .summary-text strong{color:var(--paper); font-weight:600;}
+
+  /* ---------- skills ---------- */
+  .skill-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .skill-cell{background:var(--ink); padding:22px 24px;}
+  .skill-cell h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--amber);
+    margin:0 0 12px;
+    font-weight:500;
+  }
+  .skill-cell p{margin:0; color:var(--paper-dim); font-size:0.92rem; line-height:1.6;}
+
+  /* ---------- experience timeline ---------- */
+  .timeline{position:relative; padding-left:26px; border-left:1px solid var(--line-strong);}
+  .role{position:relative; padding-bottom:52px;}
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:""; position:absolute; left:-31px; top:6px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--teal);
+  }
+  .role.current::before{background:var(--amber); border-color:var(--amber);}
+  .role-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:4px;}
+  .role-head h3{margin:0; font-size:1.18rem; font-weight:600;}
+  .role-date{font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--teal); white-space:nowrap;}
+  .role-org{color:var(--paper-dim); font-size:0.92rem; margin:0 0 14px;}
+  .role ul{margin:0; padding-left:18px; color:var(--paper-dim); font-size:0.94rem;}
+  .role li{margin-bottom:9px;}
+  .role li::marker{color:var(--amber);}
+
+  /* ---------- achievements ---------- */
+  .ach-list{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .ach-list li{background:var(--ink); padding:18px 22px; font-size:0.95rem; color:var(--paper-dim); display:flex; gap:16px;}
+  .ach-list .tag{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--amber); flex:0 0 auto; padding-top:2px;}
+
+  /* ---------- education ---------- */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;}
+  .edu-item{border-top:2px solid var(--teal); padding-top:14px;}
+  .edu-item h3{font-size:0.98rem; margin:0 0 6px; font-weight:600;}
+  .edu-item p{margin:0; color:var(--paper-dim); font-size:0.85rem;}
+  .edu-item .yr{font-family:'IBM Plex Mono', monospace; color:var(--teal); font-size:0.75rem; display:block; margin-top:8px;}
+
+  /* ---------- contact / footer ---------- */
+  .contact-panel{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:48px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:28px;
+  }
+  .contact-panel h2{margin:0 0 8px; font-size:1.6rem;}
+  .contact-panel p{margin:0; color:var(--paper-dim); max-width:44ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:0.88rem;}
+  .contact-links a{text-decoration:none; color:var(--paper); opacity:0.85;}
+  .contact-links a:hover{opacity:1; color:var(--amber);}
+  footer{padding:30px 0; text-align:center; font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--paper-dim);}
+
+  @media (max-width:680px){
+    nav ul{display:none;}
+    .skill-grid{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .contact-panel{flex-direction:column; align-items:flex-start; padding:32px 24px;}
+    .hero{padding:80px 0 60px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand">AAKASH<span>.</span>ATRE</div>
+    <nav>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow mono">Pune, India — Available immediately</p>
+    <h1>Securing enterprise networks, one rule-base at a time.</h1>
+    <p class="lede">Network &amp; Security Engineer with 3+ years hardening multi-site infrastructure across the US, UK, and India — SME on the Cisco Meraki full stack and Sophos XGS firewall platforms.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="mailto:aakashatre99@gmail.com">Email directly</a>
+      <a class="btn ghost" href="https://linkedin.com/in/aakash-atre" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>3+ yrs</strong>enterprise network &amp; security</div>
+      <div><strong>3</strong>countries served (US / UK / India)</div>
+      <div><strong>2</strong>firewall platforms as SME (Meraki, Sophos XGS)</div>
+      <div><strong>8–42%</strong>cost savings delivered on firewall migration</div>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Professional summary</h2>
+      <span class="section-num mono">01 / SUMMARY</span>
+    </div>
+    <p class="summary-text">
+      Hands-on <strong>Subject Matter Expert in firewall administration and hardening</strong> across the Cisco Meraki full stack (MX/MS/MR/MV/MG) and Sophos XGS (2100/2300) platforms — including DoS/DDoS attack-surface reduction, IPS/ATP threat prevention, VPN and DMZ architecture, and network segmentation. Experienced in WAN/ISP capacity planning, zero-downtime security migrations, vulnerability-driven firmware patching, and log-based threat triage. Track record of translating security and networking requirements into cost-optimized, compliant, resilient infrastructure for enterprise and financial-grade environments.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Core technical skills</h2>
+      <span class="section-num mono">02 / SKILLS</span>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-cell">
+        <h3>Security &amp; Firewalls</h3>
+        <p>Firewall administration &amp; hardening · DoS/DDoS mitigation (SYN/TCP flood) · IPS/IDS signature tuning · ATP/sandboxing · NAT · ACL &amp; rule-base hardening · Site-to-Site &amp; SSL/remote-access VPN · DMZ architecture · Network segmentation &amp; ZTNA · Cisco ASA, Sophos XGS, FortiGate, Juniper SRX, SonicWall</p>
+      </div>
+      <div class="skill-cell">
+        <h3>Network &amp; Routing</h3>
+        <p>Cisco Meraki full stack (MX/MS/MR/MV/MG) · WAN engineering · SD-WAN · MPLS · DIA &amp; broadband circuits · VLAN design &amp; inter-VLAN routing · BGP · OSPF · EIGRP · STP · TCP/IP · DNS · DHCP · SNMP</p>
+      </div>
+      <div class="skill-cell">
+        <h3>Security Operations</h3>
+        <p>Vulnerability &amp; patch/firmware management · log analysis &amp; anomaly/IOC triage · incident response &amp; RCA · CIS benchmark-aligned hardening · security documentation &amp; migration runbooks</p>
+      </div>
+      <div class="skill-cell">
+        <h3>Monitoring &amp; Cloud</h3>
+        <p>PRTG · Zabbix · Wireshark · Nmap · Traceroute · SNMP-based monitoring · AWS VPC, Subnets, Route Tables, EC2, ELB, S3, IAM, MFA, hybrid on-prem-to-cloud connectivity</p>
+      </div>
+      <div class="skill-cell">
+        <h3>Wireless</h3>
+        <p>Wireless site survey &amp; heat mapping (Ekahau, NetSpot) · AP design &amp; optimization · point-to-point wireless (AdaLov CPE361, TP-Link Omada CPE710 / Bridge 5UR)</p>
+      </div>
+      <div class="skill-cell">
+        <h3>Multi-vendor Estate</h3>
+        <p>Cisco Meraki · Sophos XGS · Cisco ASA · FortiGate · Juniper SRX · SonicWall · Aruba · Ubiquiti UniFi · Dell switching — designed and hardened across all of them in production</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="section-num mono">03 / TIMELINE</span>
+    </div>
+    <div class="timeline">
+
+      <div class="role current">
+        <div class="role-head">
+          <h3>Senior Network Engineer</h3>
+          <span class="role-date mono">Mar 2026 – Present</span>
+        </div>
+        <p class="role-org">KG Invicta Services (KGiS) — Coimbatore, India</p>
+        <ul>
+          <li>Firewall Security SME leading enterprise-wide migration from Cisco Meraki to Sophos XGS — an 8–24% cost-optimized transition (MX95 → XGS 2100) and 24–42% (MX105 → XGS 2300) with zero downtime and equivalent security posture.</li>
+          <li>Re-tuned SYN/TCP flood bypass thresholds on Sophos XGS, cutting exposure to volumetric attacks while eliminating false-positive drops on legitimate high-throughput traffic.</li>
+          <li>Configure IPS signatures and ATP/sandboxing policies to detect and block malware callbacks, botnet C2 traffic, and known exploits across multi-site environments.</li>
+          <li>SME for ISP bandwidth (broadband &amp; DIA) upgrade planning with Comcast, sizing circuits from real-time utilization and daily active-user data.</li>
+          <li>Independently owns an inter-building wireless connectivity project across a multi-building hospital campus — TP-Link Omada CPE710 / Bridge 5UR outdoor bridges, PtP/PtMP topology selection, centrally managed via Omada Cloud Controller.</li>
+          <li>Reviews firewall/IPS/VPN logs for anomalous traffic and IOCs, escalating validated findings for incident response and RCA.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>Network Engineer — L2</h3>
+          <span class="role-date mono">Mar 2025 – Mar 2026</span>
+        </div>
+        <p class="role-org">KG Invicta Services (KGiS) — Coimbatore, India</p>
+        <ul>
+          <li>Primary network engineer supporting enterprise infrastructure across multiple US-based sites, ensuring high-availability, secure WAN/LAN operations.</li>
+          <li>Designed and managed multi-vendor networks and firewall policies across Cisco Meraki, Cisco, Aruba, Dell, Fortinet, and SonicWall.</li>
+          <li>Led WAN lifecycle management, coordinating with Comcast, AT&amp;T, Spectrum, and CenturyLink for circuit provisioning and troubleshooting.</li>
+          <li>Deployed and tuned PRTG and Zabbix for proactive alerting and infrastructure visibility; executed zero-downtime firewall and segmentation migrations.</li>
+          <li>Optimized wireless infrastructure via UniFi Controller and point-to-point links (AdaLov CPE361) for inter-building connectivity.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <h3>Network Engineer</h3>
+          <span class="role-date mono">Dec 2022 – Dec 2024</span>
+        </div>
+        <p class="role-org">Infinity Labs IT Services Ltd — London, United Kingdom</p>
+        <ul>
+          <li>Led enterprise-scale migration to full-stack Cisco Meraki across multiple Royal Mail sites in the UK, including firewall and security-policy cutover.</li>
+          <li>Administered Juniper SRX and FortiGate firewalls — policy design, rule-base hardening, and platform security configuration.</li>
+          <li>Designed VLANs, routing protocols (BGP/OSPF), and firewall policies for secure enterprise connectivity; established Site-to-Site VPNs via Meraki AutoVPN.</li>
+          <li>Supported real-time network operations at Heathrow Worldwide Distribution Centre — a critical logistics site.</li>
+          <li>Escalation point for critical network and security incidents, coordinating across internal teams and vendors.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Key achievements</h2>
+      <span class="section-num mono">04 / RESULTS</span>
+    </div>
+    <ul class="ach-list">
+      <li><span class="tag mono">MIGRATION</span>Designed and led a Cisco Meraki-to-Sophos XGS migration delivering 8–24% savings (MX95 → XGS 2100) and 24–42% (MX105 → XGS 2300), with zero downtime.</li>
+      <li><span class="tag mono">SECURITY</span>Reduced SYN/TCP flood attack exposure by re-baselining DoS/DDoS bypass thresholds — improved resilience without disrupting legitimate traffic.</li>
+      <li><span class="tag mono">CAPACITY</span>SME for ISP bandwidth (broadband &amp; DIA) capacity planning with Comcast, sizing circuit upgrades from real-time utilization data.</li>
+      <li><span class="tag mono">DELIVERY</span>Delivered multiple zero-downtime network and firewall migrations across US and UK multi-site enterprise environments.</li>
+      <li><span class="tag mono">ROLLOUT</span>Led full-stack Cisco Meraki deployments across UK enterprise sites, ensuring seamless integration and stable production cutovers.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="section-num mono">05 / EDUCATION</span>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <h3>MSc, International Business &amp; Human Resources Management</h3>
+        <p>De Montfort University, Leicester, UK</p>
+        <span class="yr mono">Oct 2021 – Sep 2022</span>
+      </div>
+      <div class="edu-item">
+        <h3>BE, Electronics and Telecommunication</h3>
+        <p>PES's Modern College of Engineering, Pune — Distinction, CGPA 7.9/10</p>
+        <span class="yr mono">Jun 2018 – May 2021</span>
+      </div>
+      <div class="edu-item">
+        <h3>Diploma, Electronics and Telecommunication</h3>
+        <p>PVG's MIPT, Pune — Distinction, 76%</p>
+        <span class="yr mono">Jun 2015 – May 2018</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Let's talk networks.</h2>
+        <p>Open to Senior Network Engineer, Cisco Meraki Engineer, and network security roles across India. Available to join immediately.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:aakashatre99@gmail.com">aakashatre99@gmail.com</a>
+        <a href="tel:+919673661804">+91 96736 61804</a>
+        <a href="https://linkedin.com/in/aakash-atre" target="_blank" rel="noopener">linkedin.com/in/aakash-atre</a>
+        <span>Pune, India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Aakash Girish Atre — Built with a network schematic in mind.</div>
+</footer>
+
+</body>
+</html>
